@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="FOCUS — уникальный таймер продуктивности, который превращает ваше время в яркую палитру успеха"
+    />
+    <title>FOCUS - Таймер продуктивности</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", Helvetica, Arial, sans-serif;
+        background-color: #f8f9f4;
+        color: #000000;
+        line-height: 1.6;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        overflow-x: hidden;
+      }
+
+      .header {
+        width: 100%;
+        height: 104px;
+        position: relative;
+        background-color: #ddee40;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+      }
+
+      .logo {
+        height: 48px;
+        width: auto;
+      }
+
+      .menu-buttons {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+      }
+
+      .text-wrapper {
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #000000;
+        font-size: 20px;
+        text-decoration: none;
+        white-space: nowrap;
+        letter-spacing: 0;
+        transition: opacity 0.3s;
+      }
+
+      .text-wrapper:hover {
+        opacity: 0.8;
+      }
+
+      .information {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .google, .apple {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+      }
+
+      .google img, .apple img {
+        width: 100%;
+        height: auto;
+      }
+
+      .div {
+        font-family: "Inter-MediumItalic", Helvetica;
+        font-weight: 500;
+        font-style: italic;
+        color: #000000;
+        font-size: 20px;
+        letter-spacing: 0;
+        white-space: nowrap;
+        text-decoration: none;
+      }
+
+      .hero-section {
+        width: 100%;
+        height: 622px;
+        position: relative;
+        background-image: url(./img/hero-bg.svg);
+        background-size: cover;
+        background-position: 50% 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #ffffff;
+      }
+
+      .rectangle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #00000066;
+        backdrop-filter: blur(2px) brightness(100%);
+        -webkit-backdrop-filter: blur(2px) brightness(100%);
+        z-index: 1;
+      }
+
+      .layer {
+        position: relative;
+        width: 340px;
+        height: 80px;
+        z-index: 2;
+      }
+
+      .hero-section p {
+        position: relative;
+        width: 80%;
+        max-width: 1130px;
+        font-family: "Inter-Medium", Helvetica;
+        font-weight: 500;
+        color: #ffffff;
+        font-size: 24px;
+        text-align: center;
+        margin-top: 30px;
+        z-index: 2;
+      }
+
+      .left {
+        position: absolute;
+        bottom: 40px;
+        width: 64px;
+        height: 64px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 2;
+        transform: rotate(-90deg);
+      }
+
+      .vector-4 {
+        width: 50%;
+        height: 50%;
+        rotate: 90deg;
+      }
+
+      .information-2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 80px 40px;
+        background-color: #ffffff;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
+      .image {
+        width: 48%;
+        min-width: 300px;
+        height: 342px;
+        border-radius: 12px;
+        background-image: url(./img/image-2.png);
+        background-size: cover;
+        background-position: 50% 50%;
+      }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        width: 48%;
+        min-width: 300px;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        padding: 20px;
+      }
+
+      .text-wrapper-2 {
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #000000;
+        font-size: 48px;
+        text-align: center;
+        letter-spacing: 0;
+        width: 100%;
+      }
+
+      .FOCUS {
+        font-family: "Inter-Medium", Helvetica;
+        font-weight: 500;
+        color: #000000;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: 1.6;
+        width: 100%;
+      }
+
+      /* ПРОСТОЙ СЛАЙДЕР С ОДНОЙ КАРТИНКОЙ */
+      .slider {
+        display: flex;
+        width: 95%;
+        height: 450px;
+        margin: 0 auto;
+        background-image: url(./img/slide1.svg);
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+      }
+
+      .download {
+        width: 100%;
+        height: auto;
+        position: relative;
+        background-color: #ffffff;
+        padding: 80px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .text-wrapper-5 {
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #000000;
+        font-size: 48px;
+        text-align: center;
+        letter-spacing: 0;
+        margin-bottom: 60px;
+      }
+
+      .download-platforms {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
+      .a-ndroid, .IOS {
+        display: flex;
+        flex-direction: column;
+        width: 445px;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .div-2 {
+        position: relative;
+        width: 143px;
+        height: 143px;
+      }
+
+      .vector-5, .vector-6, .vector-7, .vector-8, .vector-9, .vector-10 {
+        position: absolute;
+      }
+
+      .vector-5 {
+        width: 143px;
+        height: 143px;
+      }
+
+      .vector-6 {
+        width: 8.33%;
+        height: 14.58%;
+        top: 24.29%;
+        left: 18.04%;
+      }
+
+      .vector-7 {
+        width: 8.33%;
+        height: 14.58%;
+        top: 24.29%;
+        left: 65.95%;
+      }
+
+      .vector-8 {
+        width: 8.33%;
+        height: 8.33%;
+        top: 56.25%;
+        left: 27.08%;
+      }
+
+      .vector-9 {
+        width: 8.33%;
+        height: 8.33%;
+        top: 56.25%;
+        left: 64.58%;
+      }
+
+      .vector-10 {
+        width: 143px;
+        height: 143px;
+      }
+
+      .text-wrapper-4 {
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #000000;
+        font-size: 24px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+        text-decoration: none;
+        word-break: break-word;
+        padding: 0 10px;
+      }
+
+      .information-3 {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        background-image: url(./img/information.svg);
+        background-size: cover;
+        background-position: 50% 50%;
+        width: 100%;
+        padding: 96px 40px;
+        align-items: center;
+      }
+
+      .text-wrapper-6 {
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #ffffff;
+        font-size: 48px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+        width: 100%;
+        max-width: 900px;
+      }
+
+      .FOCUS-FOCUS {
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #ffffff;
+        font-size: 24px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+        width: 100%;
+        max-width: 1130px;
+      }
+
+      .footer {
+        width: 100%;
+        height: auto;
+        position: relative;
+        background-color: #ddee40;
+        padding: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .logo-2 {
+        width: 179px;
+        height: 41px;
+      }
+
+      .text-wrapper-7 {
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #000000;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: normal;
+        text-decoration: none;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .frame-2 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .text-wrapper-8, .text-wrapper-9 {
+        font-family: "Inter-Medium", Helvetica;
+        font-weight: 500;
+        color: #000000;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: normal;
+        text-decoration: none;
+      }
+
+      .frame-3 {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .text-wrapper-10 {
+        font-family: "Inter-Medium", Helvetica;
+        font-weight: 500;
+        color: #000000;
+        font-size: 20px;
+        white-space: nowrap;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+
+      /* Accessibility improvements */
+      .menu-buttons a:focus,
+      .information a:focus,
+      .left:focus,
+      .a-ndroid a:focus,
+      .IOS a:focus,
+      .text-wrapper-7:focus,
+      .frame-2 a:focus,
+      .frame-3 a:focus {
+        outline: 2px solid #000000;
+        outline-offset: 2px;
+      }
+
+      .left:focus {
+        outline-color: #ffffff;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 1200px) {
+        .information-2 {
+          flex-direction: column;
+          gap: 40px;
+        }
+        
+        .image, .text {
+          width: 100%;
+        }
+        
+        .header {
+          flex-direction: column;
+          height: auto;
+          padding: 20px;
+          gap: 20px;
+        }
+        
+        .menu-buttons {
+          order: 2;
+        }
+        
+        .information {
+          order: 3;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .text-wrapper-2, .text-wrapper-5, .text-wrapper-6 {
+          font-size: 36px;
+        }
+        
+        .hero-section p {
+          font-size: 18px;
+        }
+        
+        .FOCUS, .FOCUS-FOCUS {
+          font-size: 16px;
+        }
+        
+        .text-wrapper {
+          font-size: 16px;
+        }
+        
+        .download-platforms {
+          flex-direction: column;
+          align-items: center;
+        }
+        
+        .footer {
+          flex-direction: column;
+          gap: 30px;
+        }
+        
+        .frame-3 {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        
+        .slider {
+          height: 300px;
+          width: 95%;
+        }
+        
+        .text-wrapper-4 {
+          font-size: 18px;
+        }
+        
+        .text-wrapper-7, .text-wrapper-8, .text-wrapper-9, .text-wrapper-10 {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <img class="logo" src="img/logo.svg" alt="FOCUS логотип" />
+        <nav class="menu-buttons" role="navigation" aria-label="Основная навигация">
+          <a href="#about" class="text-wrapper">О приложении</a>
+          <a href="#features" class="text-wrapper">Функции</a>
+          <a href="#contacts" class="text-wrapper">Контакты</a>
+        </nav>
+        <div class="information">
+          <a
+            href="https://play.google.com/store/apps/details?id=fr.smarquis.applinks"
+            class="google"
+            aria-label="Скачать в Google Play"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="img/vector.svg" alt="" aria-hidden="true" />
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=fr.smarquis.applinks"
+            class="apple"
+            aria-label="Скачать в App Store"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="img/vector-3.svg" alt="" aria-hidden="true" />
+          </a>
+          <a href="mailto:focusfimer@gmail.ru" class="div">focusfimer@gmail.ru</a>
+        </div>
+      </header>
+      
+      <section class="hero-section" aria-labelledby="hero-title" >
+        <div class="rectangle" aria-hidden="true"></div>
+        <img class="layer" src="img/LOGO.svg" alt="FOCUS" id="hero-title" />
+        <p>
+          Таймер, который превращает ваше время продуктивности в яркую палитру успеха! Завершайте задачи, проходите
+          таймер и получайте красивые цветы в награду.
+        </p>
+        <button class="left" aria-label="Прокрутить вниз">
+          <img class="vector-4" src="img/vector-8.svg" alt="" aria-hidden="true" />
+        </button>
+      </section>
+      
+      <section class="information-2" id="about" aria-labelledby="about-title">
+        <div class="image" role="img" aria-label="Скриншот приложения FOCUS">
+          <img class="text-wrapper-2" src="img/girl.svg" alt="Скриншот приложения FOCUS" />
+        </div>
+        <div class="text">
+          <h2 class="text-wrapper-2" id="about-title">О приложении</h2>
+          <p class="FOCUS">
+            FOCUS — это уникальный таймер, который превращает ваш процесс работы в яркое цветочное путешествие. Каждое
+            успешно завершённое задание или сессия приносит в вашу коллекцию красный цветок. Наблюдайте, как растут
+            разные цветы, символизирующие ваше усердие и прогресс, и создавайте свою собственную садовую палитру
+            продуктивности.
+          </p>
+        </div>
+      </section>
+      
+      <!-- ПРОСТОЙ СЛАЙДЕР С ОДНОЙ КАРТИНКОЙ -->
+      <section class="slider" id="features" aria-label="Интерфейс приложения"></section>
+      
+      <section class="download" aria-labelledby="download-title">
+        <h2 class="text-wrapper-5" id="download-title">Скачать приложение</h2>
+        <div class="download-platforms">
+          <article class="a-ndroid">
+            <div class="div-2" role="img" aria-label="Android логотип">
+              <img class="vector-5" src="img/android.svg" alt="" aria-hidden="true" />
+            </div>
+            <a
+              href="https://github.com/allseenn/focus/raw/refs/heads/main/focus.apk"
+              class="text-wrapper-4"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://play.google.com/store/apps/details?id=fr.smarquis.applinks</a
+            >
+          </article>
+          <article class="IOS">
+            <div class="div-2" role="img" aria-label="iOS логотип">
+              <img class="vector-10" src="img/apple.svg" alt="" aria-hidden="true" />
+            </div>
+            <a
+              href="https://github.com/allseenn/focus/raw/refs/heads/main/focus.apk"
+              class="text-wrapper-4"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://play.google.com/store/apps/details?id=fr.smarquis.applinks</a
+            >
+          </article>
+        </div>
+      </section>
+      
+      <section class="information-3" aria-labelledby="ecology-title">
+        <h2 class="text-wrapper-6" id="ecology-title">Вместе мы сохраняем леса!</h2>
+        <p class="FOCUS-FOCUS">
+          FOCUS также активно участвует в экологической инициативе — сотрудничестве с эко-фондами по сохранению лесов.
+          Каждая выполненная сессия помогает не только повышать вашу продуктивность, но и вносить плоды в охрану природы.  
+          <br><br>
+          За каждое завершение таймера часть доходов направляется на проекты по восстановлению и сохранению лесных
+          экосистем.  
+          <br><br>
+          Вместе с FOCUS вы можете не только достигать своих целей, но и помогать сохранять природное
+          богатство планеты для будущих поколений.
+        </p>
+      </section>
+      
+      <footer class="footer" id="contacts">
+        <img class="logo-2" src="img/logo.svg" alt="FOCUS логотип" />
+        <nav class="frame-2" role="navigation" aria-label="Навигация подвала">
+          <a href="#about" class="text-wrapper-8">О приложении</a>
+          <a href="#about-us" class="text-wrapper-9">О нас</a>
+          <a href="#contacts" class="text-wrapper-9">Контакты</a>
+        </nav>
+        <div class="frame-3">
+          <span class="text-wrapper-10">Связаться с нами:</span>
+          <a href="mailto:focusfimer@gmail.ru" class="text-wrapper">focusfimer@gmail.ru</a>
+        </div>
+        <a href="#privacy" class="text-wrapper-7">Политика конфиденциальности</a>
+      </footer>
+    </div>
+  </body>
+</html>
